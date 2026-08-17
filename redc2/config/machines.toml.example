@@ -1,0 +1,34 @@
+# REDC2 machine configuration.
+#
+# Copy this file to `config/machines.toml` and edit it for your machines.
+# Never put plaintext passwords in this file. Use an SSH key (preferred)
+# or your running ssh-agent; interactive password auth is only used as a
+# fallback if `allow_password_auth = true` and no key/agent auth succeeds.
+
+[settings]
+log_file = "~/.redc2/redc2.log"
+refresh_interval = 2.0          # seconds between telemetry polls
+connection_timeout = 8.0        # seconds before an SSH connect attempt times out
+max_reconnect_attempts = 5      # cap on automatic reconnect attempts
+reconnect_backoff_base = 2.0    # seconds; doubles each attempt
+reconnect_backoff_max = 60.0    # seconds; backoff ceiling
+
+[[machines]]
+name = "Debian-Laptop"
+host = "192.168.1.100"
+port = 22
+username = "user"
+key_file = "~/.ssh/id_ed25519"
+use_agent = true
+allow_password_auth = false
+strict_host_key_checking = true
+
+[[machines]]
+name = "Raspberry-Pi"
+host = "192.168.1.101"
+port = 22
+username = "pi"
+key_file = "~/.ssh/id_ed25519"
+use_agent = true
+allow_password_auth = false
+strict_host_key_checking = true
