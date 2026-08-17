@@ -70,6 +70,4 @@ quit / exit       Close REDC2
 | `↑` / `↓` | Navigate machine list |
 | `Enter` | Select machine |
 
-## License
 
-MIT
