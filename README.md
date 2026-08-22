@@ -9,7 +9,10 @@ REDC2 is a terminal based dashboard written in Python, it lets you manage your m
 3. Open machines.toml.example file, edit it with the real credentials and rename it to machines.toml
 4. Run the exe file
 
+
+
 ## Setting up the machines.toml (replace the credentials)
+# Do not use SSH key-file auth this function was removed !
 
 ```toml
 [[machines]]
@@ -28,4 +31,6 @@ To add more machines simply copy paste the [[machines]] block, change the creden
 ## How to use it
 
 When you type help in the mini terminal, the first terminal you see when you launch the program simply type 'help' to see the commands
+
+
 
