@@ -4,8 +4,11 @@ REDC2 is a terminal based dashboard written in Python, it lets you manage your m
 
 ## Requirements on the managed machine
 
+## Note that the managed machine MUST be linux
+
 For the dashboard to show live **CPU, RAM, and temperature** numbers
 instead of `N/A`, each managed machine needs:
+
 
 - **Python 3** installed on the target machines
 - The **`psutil`** package installed for that Python:
