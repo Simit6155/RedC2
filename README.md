@@ -29,9 +29,3 @@ To add more machines simply copy paste the [[machines]] block, change the creden
 
 When you type help in the mini terminal, the first terminal you see when you launch the program simply type 'help' to see the commands
 
-## If you prefer using pip instead of manually downloading it run this bash command:
-
-```bash
-pip install redc2
-redc2 --config machines.toml
-```
