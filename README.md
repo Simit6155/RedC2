@@ -1,73 +1,46 @@
 # REDC2
 
-A terminal-based SSH remote-management dashboard for your own machines.
-Point it at machines you have SSH access to and get a live TUI with
-system telemetry and an interactive SSH shell.
+A terminal dashboard for managing your home-lab machines over SSH. See all your machines' status, get live telemetry, and open an SSH terminal to any of them -- all from one screen.
 
-## Install
+## Quick Start (Windows)
 
-```bash
-pip install redc2
-```
+1. Download `redc2.exe` and `machines.toml.example` from [Releases](../../releases)
+2. Put both files in the same folder
+3. Rename `machines.toml.example` to `machines.toml` and edit it with your machine's info (see below)
+4. Double-click `redc2.exe`
 
-## Configure
-
-Create a `machines.toml` file:
-
-```bash
-mkdir config
-```
-
-`config/machines.toml`:
+## Setting up machines.toml
 
 ```toml
 [[machines]]
-name = "My-Server"
-host = "192.168.1.100"
+name = "my-server"
+host = "192.168.1.113"
 port = 22
-username = "user"
-password = "yourpassword"
+username = "myuser"
+key_file = "~/.ssh/id_ed25519"
+```
+
+Add more machines by copy-pasting another `[[machines]]` block. That's it.
+
+If you'd rather log in with a password instead of an SSH key, add:
+```toml
 allow_password_auth = true
-use_agent = false
-strict_host_key_checking = false
+password = "yourpassword"
 ```
 
-Add as many `[[machines]]` blocks as you want, one per machine.
+## Controls
 
-## Run
+- `Ctrl+T` — open terminal for selected machine
+- `r` — refresh
+- `q` — quit
+
+## Install via pip instead
 
 ```bash
-redc2
+pip install redc2
+redc2 --config machines.toml
 ```
 
-Or point it at a config file somewhere else:
+## License
 
-```bash
-redc2 --config /path/to/machines.toml
-```
-
-## Commands
-
-```
-help              Show available commands
-list              List all configured machines
-select <id>       Open the detail/terminal view for a machine
-info <id>         Show detailed telemetry for a machine
-dashboard         Return to the main dashboard
-refresh           Force an immediate telemetry refresh
-reconnect <id>    Manually retry connecting to a machine
-quit / exit       Close REDC2
-```
-
-## Keyboard shortcuts
-
-| Key | Action |
-|-----|--------|
-| `q` | Quit |
-| `r` | Refresh dashboard |
-| `Esc` | Back |
-| `Tab` | Switch panels |
-| `↑` / `↓` | Navigate machine list |
-| `Enter` | Select machine |
-
-
+MIT
