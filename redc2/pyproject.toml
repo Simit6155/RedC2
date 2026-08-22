@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redc2"
+version = "0.1.0"
+description = "A terminal-based SSH remote management dashboard for personal/home-lab machines."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "REDC2 Project" }]
+keywords = ["ssh", "tui", "textual", "remote-management", "home-lab"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Systems Administration",
+]
+
+dependencies = [
+    "textual>=0.58.0",
+    "rich>=13.7.0",
+    "paramiko>=3.4.0",
+    "pyte>=0.8.2",
+    "psutil>=5.9.0",
+    "tomli-w>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+redc2 = "redc2.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["redc2*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

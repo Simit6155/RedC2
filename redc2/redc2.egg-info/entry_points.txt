@@ -1,0 +1,2 @@
+[console_scripts]
+redc2 = redc2.__main__:main
