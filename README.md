@@ -32,4 +32,19 @@ To add more machines simply copy paste the [[machines]] block, change the creden
 When you type help in the mini terminal, the first terminal you see when you launch the program simply type 'help' to see the commands
 
 
+## 6. Requirements on the managed machine
+
+For the dashboard to show live **CPU, RAM, and temperature** numbers
+instead of `N/A`, each managed machine needs:
+
+- **Python 3** installed and reachable as `python3` on the `PATH` for
+  the SSH user.
+- The **`psutil`** package installed for that Python:
+
+  ```bash
+  pip3 install psutil
+  # or, on Debian/Ubuntu/Raspberry Pi OS:
+  sudo apt install python3-psutil
+  ```
+
 
