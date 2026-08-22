@@ -2,6 +2,21 @@
 
 REDC2 is a terminal based dashboard written in Python, it lets you manage your machines using Secure Shell (SSH).
 
+## Requirements on the managed machine
+
+For the dashboard to show live **CPU, RAM, and temperature** numbers
+instead of `N/A`, each managed machine needs:
+
+- **Python 3** installed on the target machines
+- The **`psutil`** package installed for that Python:
+
+  ```bash
+  pip3 install psutil
+  # or, on Debian/Ubuntu/Raspberry Pi OS:
+  sudo apt install python3-psutil
+  ```
+
+
 ## Quick start for Windows users:
 
 1. Download the redc2.exe and the machines.toml.example file from the [Releases](../../releases) tab
@@ -31,20 +46,5 @@ To add more machines simply copy paste the [[machines]] block, change the creden
 
 When you type help in the mini terminal, the first terminal you see when you launch the program simply type 'help' to see the commands
 
-
-## 6. Requirements on the managed machine
-
-For the dashboard to show live **CPU, RAM, and temperature** numbers
-instead of `N/A`, each managed machine needs:
-
-- **Python 3** installed and reachable as `python3` on the `PATH` for
-  the SSH user.
-- The **`psutil`** package installed for that Python:
-
-  ```bash
-  pip3 install psutil
-  # or, on Debian/Ubuntu/Raspberry Pi OS:
-  sudo apt install python3-psutil
-  ```
 
 
