@@ -2,6 +2,9 @@
 
 REDC2 is a terminal based dashboard written in Python, it lets you manage your machines using Secure Shell (SSH).
 
+# Demo video
+[**▶ Click here to download the demo video**](2026-08-24%2017-04-27.mkv)
+
 ## Requirements on the managed machine
 
 ## Note that the managed machine MUST be linux
@@ -11,6 +14,13 @@ instead of `N/A`, each managed machine needs:
 
 
 - **Python 3** installed on the target machines
+- psutil has to be installed for the same `python3` that SSH actually runs, not just whatever python3 you get in an interactive terminal. SSH commands run non-interactively so pyenv/conda/venv setups in your `.bashrc` are ignored.
+   Check with:
+  
+  ssh user@host 'which python3; python3 -c "import psutil"'
+
+  If that fails, install psutil directly for that python path, e.g. `sudo /usr/bin/python3 -m pip install psutil` (or `--break-system-packages` if needed).
+  
 - The **`psutil`** package installed for that Python:
 
   ```bash
@@ -44,9 +54,6 @@ strict_host_key_checking = false
 ```
 
 To add more machines simply copy paste the [[machines]] block, change the credentials though
-
-#Demo video
-[**▶ Click here to download the demo video**](2026-08-24%2017-04-27.mkv)
 
 ## How to use it
 
