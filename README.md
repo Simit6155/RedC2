@@ -45,6 +45,9 @@ strict_host_key_checking = false
 
 To add more machines simply copy paste the [[machines]] block, change the credentials though
 
+#Demo video
+[**▶ Click here to watch the demo video**](2026-08-24%2017-04-27.mkv)
+
 ## How to use it
 
 When you type help in the mini terminal, the first terminal you see when you launch the program simply type 'help' to see the commands
