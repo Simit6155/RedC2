@@ -17,7 +17,7 @@ instead of `N/A`, each managed machine needs:
   sudo apt install python3-psutil
   ```
 
-**Still showing N/A after installing psutil?** Your machine likely has more than one `python3` installed, and SSH isn't using the one you installed psutil into. Run this to check:
+**Still showing N/A after installing psutil?** Your machine likely has more than one `python3` installed, and SSH isn't using the one you installed psutil into. REDC2 tries a few common python paths automatically now, but if it still fails you can check manually:
 
 ```bash
 ssh user@host 'which python3; python3 -c "import psutil"'
@@ -26,6 +26,12 @@ ssh user@host 'which python3; python3 -c "import psutil"'
 If that fails, install psutil directly for that exact python path shown above, e.g.:
 ```bash
 sudo /usr/bin/python3 -m pip install psutil
+```
+
+## Install from PyPI
+```bash
+pip install redc2
+redc2
 ```
 
 ## Quick start for Windows users:
