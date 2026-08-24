@@ -1,37 +1,34 @@
 # REDC2
-
 REDC2 is a terminal based dashboard written in Python, it lets you manage your machines using Secure Shell (SSH).
 
 # Demo video
 [**▶ Click here to download the demo video**](2026-08-24%2017-04-27.mkv)
 
 ## Requirements on the managed machine
-
 ## Note that the managed machine MUST be linux
-
 For the dashboard to show live **CPU, RAM, and temperature** numbers
 instead of `N/A`, each managed machine needs:
 
-
-- **Python 3** installed on the target machines
-- psutil has to be installed for the same `python3` that SSH actually runs, not just whatever python3 you get in an interactive terminal. SSH commands run non-interactively so pyenv/conda/venv setups in your `.bashrc` are ignored.
-   Check with:
-  
-  ssh user@host 'which python3; python3 -c "import psutil"'
-
-  If that fails, install psutil directly for that python path, e.g. `sudo /usr/bin/python3 -m pip install psutil` (or `--break-system-packages` if needed).
-  
-- The **`psutil`** package installed for that Python:
-
+- **Python 3** installed on the target machine
+- The **`psutil`** package installed:
   ```bash
   pip3 install psutil
   # or, on Debian/Ubuntu/Raspberry Pi OS:
   sudo apt install python3-psutil
   ```
 
+**Still showing N/A after installing psutil?** Your machine likely has more than one `python3` installed, and SSH isn't using the one you installed psutil into. Run this to check:
+
+```bash
+ssh user@host 'which python3; python3 -c "import psutil"'
+```
+
+If that fails, install psutil directly for that exact python path shown above, e.g.:
+```bash
+sudo /usr/bin/python3 -m pip install psutil
+```
 
 ## Quick start for Windows users:
-
 1. Download the redc2.exe and the machines.toml.example file from the [Releases](../../releases) tab
 2. Make sure they are in the same exact folder
 3. Open machines.toml.example file, edit it with the real credentials and rename it to machines.toml
@@ -40,7 +37,6 @@ instead of `N/A`, each managed machine needs:
 # Please note that you should not use SSH key-file auth, use a normal SSH password
 
 ## Setting up the machines.toml (replace the credentials)
-
 ```toml
 [[machines]]
 name = "my-server"
@@ -52,12 +48,7 @@ allow_password_auth = true
 use_agent = false
 strict_host_key_checking = false
 ```
-
 To add more machines simply copy paste the [[machines]] block, change the credentials though
 
 ## How to use it
-
 When you type help in the mini terminal, the first terminal you see when you launch the program simply type 'help' to see the commands
-
-
-
